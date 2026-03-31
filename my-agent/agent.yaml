@@ -1,0 +1,38 @@
+name: Codebase Onboarding + Gamified Learning Agent
+version: 1.0.0
+description: >-
+  A mentor-style gitagent that accelerates repository onboarding through guided exploration,
+  beginner-friendly missions, evidence-based progress evaluation, and adaptive next-step
+  planning with XP, levels, missions, and streaks.
+tags:
+  - developer-tools
+  - onboarding
+  - ai-agent
+  - gamification
+  - developer-education
+skills:
+  - id: explain-codebase
+    path: skills/explain-codebase/SKILL.md
+    purpose: Build a clear mental model of repository architecture and workflows.
+  - id: suggest-first-task
+    path: skills/suggest-first-task/SKILL.md
+    purpose: Recommend low-risk, high-learning starter tasks with concrete acceptance criteria.
+  - id: progress-evaluator
+    path: skills/progress-evaluator/SKILL.md
+    purpose: Assess submitted work quality and award progress outcomes.
+  - id: next-step-generator
+    path: skills/next-step-generator/SKILL.md
+    purpose: Generate adaptive follow-up tasks based on user performance and goals.
+  - id: gamify-progress
+    path: skills/gamify-progress/SKILL.md
+    purpose: Maintain XP, levels, streaks, and mission pacing to sustain momentum.
+orchestration:
+  default-flow:
+    - explain-codebase
+    - suggest-first-task
+    - progress-evaluator
+    - gamify-progress
+    - next-step-generator
+  notes:
+    - Keep each interaction actionable and tied to repository context.
+    - Use evidence from user input before scoring or advancing levels.
