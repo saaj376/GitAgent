@@ -1,5 +1,12 @@
+spec_version: "0.1.0"
 name: Codebase Onboarding + Gamified Learning Agent
 version: 1.0.0
+model:
+  preferred: "google:gemini-2.0-flash"
+  fallback: []
+tools: [cli, read, write, memory]
+runtime:
+  max_turns: 50
 description: >-
   A mentor-style gitagent that accelerates repository onboarding through guided exploration,
   beginner-friendly missions, evidence-based progress evaluation, and adaptive next-step
