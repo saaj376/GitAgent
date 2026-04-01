@@ -2,7 +2,7 @@ spec_version: "0.1.0"
 name: Codebase Onboarding + Gamified Learning Agent
 version: 1.0.0
 model:
-  preferred: "google:gemini-1.5-flash-001"
+  preferred: "google:gemini-2.5-flash-native-audio-latest"
   fallback: []
 tools: [cli, read, write, memory]
 runtime:
