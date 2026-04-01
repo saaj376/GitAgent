@@ -3,7 +3,7 @@ name: GitAgent-Hackathon
 version: 0.1.0
 description: Gitclaw agent for GitAgent-Hackathon
 model:
-  preferred: "openai:gpt-4o-mini"
+  preferred: "google:gemini-2.5-flash"
   fallback: []
 tools: [cli, read, write, memory]
 runtime:
