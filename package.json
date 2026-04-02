@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "gitclaw": "^1.1.8"
+  },
+  "scripts": {
+    "start": "node server.js"
   }
 }

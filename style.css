@@ -1,0 +1,323 @@
+:root {
+  --bg: #0b1318;
+  --card: #101d24;
+  --card-alt: #142630;
+  --text: #e7f2f8;
+  --muted: #9ab5c5;
+  --accent: #11d1b1;
+  --accent-2: #f4b860;
+  --danger: #ff6b6b;
+  --user: #1d3440;
+  --agent: #173e3a;
+  --border: rgba(154, 181, 197, 0.2);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 10% 10%, #1d3e4a 0%, rgba(29, 62, 74, 0) 45%),
+    radial-gradient(circle at 85% 5%, #5a3b1f 0%, rgba(90, 59, 31, 0) 40%),
+    linear-gradient(160deg, #070d12 0%, #0b1318 48%, #0a1b20 100%);
+  overflow-x: hidden;
+}
+
+.bg-shape {
+  position: fixed;
+  z-index: -1;
+  filter: blur(55px);
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.bg-shape-one {
+  width: 260px;
+  height: 260px;
+  background: #0fa18a;
+  top: -50px;
+  left: -60px;
+}
+
+.bg-shape-two {
+  width: 300px;
+  height: 300px;
+  background: #c18327;
+  bottom: -100px;
+  right: -70px;
+}
+
+.app-shell {
+  width: min(1080px, 94vw);
+  margin: 28px auto 40px;
+  display: grid;
+  gap: 14px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.eyebrow {
+  margin: 0;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--accent);
+  font-family: "IBM Plex Mono", monospace;
+}
+
+h1 {
+  margin: 6px 0 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.8rem);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: linear-gradient(160deg, rgba(16, 29, 36, 0.92), rgba(16, 29, 36, 0.8));
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.stat-card {
+  padding: 14px;
+}
+
+.label {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+h2 {
+  margin: 8px 0 2px;
+  font-size: 1.45rem;
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.xp-card,
+.mission-card,
+.chat-card {
+  padding: 14px;
+}
+
+.xp-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.xp-track {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(154, 181, 197, 0.15);
+  overflow: hidden;
+}
+
+.xp-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #21f5cf);
+  border-radius: inherit;
+  transition: width 0.65s ease;
+}
+
+.mission-text {
+  margin: 8px 0 0;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.chat-card {
+  display: grid;
+  gap: 10px;
+}
+
+.chat-window {
+  height: min(46vh, 420px);
+  overflow-y: auto;
+  background: rgba(6, 12, 16, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+
+.chat-bubble {
+  max-width: 85%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.chat-bubble.user {
+  margin-left: auto;
+  background: var(--user);
+  border: 1px solid rgba(65, 153, 179, 0.45);
+}
+
+.chat-bubble.agent {
+  margin-right: auto;
+  background: var(--agent);
+  border: 1px solid rgba(43, 198, 166, 0.45);
+}
+
+.thinking-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+  justify-self: start;
+}
+
+.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(17, 209, 177, 0.2);
+  border-top-color: var(--accent);
+  animation: spin 0.8s linear infinite;
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+}
+
+input[type="text"] {
+  border: 1px solid var(--border);
+  background: rgba(13, 27, 33, 0.8);
+  color: var(--text);
+  padding: 12px;
+  border-radius: 10px;
+  font-family: "Space Grotesk", sans-serif;
+}
+
+input[type="text"]:focus {
+  outline: 2px solid rgba(17, 209, 177, 0.45);
+  border-color: rgba(17, 209, 177, 0.6);
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  border-radius: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: linear-gradient(110deg, var(--accent), #1be4c4);
+  color: #0b1a20;
+  padding: 0 16px;
+}
+
+.primary-btn:hover {
+  filter: brightness(1.08);
+}
+
+.secondary-btn {
+  padding: 10px 14px;
+  background: rgba(244, 184, 96, 0.18);
+  color: #ffd39a;
+  border: 1px solid rgba(244, 184, 96, 0.45);
+}
+
+.toast {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  max-width: 360px;
+  background: #13232d;
+  border: 1px solid rgba(33, 245, 207, 0.45);
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: var(--text);
+  transform: translateY(-140%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  z-index: 10;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.level-up-pulse {
+  animation: pulse 0.8s ease;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .chat-window {
+    height: 50vh;
+  }
+
+  .chat-bubble {
+    max-width: 92%;
+  }
+
+  .chat-form {
+    grid-template-columns: 1fr;
+  }
+
+  .primary-btn {
+    min-height: 42px;
+  }
+}
